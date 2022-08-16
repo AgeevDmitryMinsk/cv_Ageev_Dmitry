@@ -1,12 +1,13 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useRef} from 'react';
 import s from './ContactFormBlock.module.scss';
 import {useFormik} from 'formik';
 import {formAPI} from '../../../../dal/api';
 import {Loader} from '../../../a8-Common/Loader/Loader';
+import emailjs from "@emailjs/browser";
 
 type FormikErrorType = {
-	name?: string
-	email?: string
+	user_name?: string
+	user_email?: string
 	message?: string
 }
 
@@ -42,17 +43,17 @@ export const ContactForm: FC<ContactFormPropsType> = ({setStatusResult, showModa
 
 	const formik = useFormik({
 		initialValues: {
-			name: '',
-			email: '',
+			user_name: '',
+			user_email: '',
 			message: '',
 		},
 		validate: (values) => {
 			const errors: FormikErrorType = {};
 
-			if (!values.email) {
-				errors.email = 'Required';
-			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-				errors.email = 'Invalid email address';
+			if (!values.user_email) {
+				errors.user_email = 'Required';
+			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.user_email)) {
+				errors.user_email = 'Invalid email address';
 			}
 
 			if (!values.message) {
@@ -66,10 +67,15 @@ export const ContactForm: FC<ContactFormPropsType> = ({setStatusResult, showModa
 		onSubmit: async values => {
 			console.log(JSON.stringify(values));
 			setStatus('loading')
-			const {name, email, message} = values;
+			const {user_name, user_email, message} = values;
+
 			try {
-				const res = await formAPI.sendMessage({name, email, message})
-				if (res.data === 'ok') {
+				const res = await emailjs.send("service_4zo0sgd",
+					"template_da7trim",
+					{user_name, user_email, message},
+					"E8fIpmZmIe9aBmRvH")
+
+				if (res.status === 200) {
 					console.log('я тут')
 					setStatusResult(true)
 				}
@@ -85,23 +91,23 @@ export const ContactForm: FC<ContactFormPropsType> = ({setStatusResult, showModa
 
 
 	return (
-		<form onSubmit={formik.handleSubmit} className={status === 'loading' ? s.formLoading : ''}>
+		 <form onSubmit={formik.handleSubmit} className={status === 'loading' ? s.formLoading : ''}>
 			<div className={s.formBox}>
 				<div className={s.group}>
-					<input type="text" required className={s.input} {...formik.getFieldProps('name')}/>
+					<input type="text" required className={s.input} {...formik.getFieldProps('user_name')}/>
 					<span className={s.highlight}></span>
 					<span className={s.bar}></span>
 					<label className={s.label}>Your Name</label>
-					{formik.errors.name && formik.touched.name ? <div className={s.formError}>{formik.errors.name}</div> : null}
+					{formik.errors.user_name && formik.touched.user_name ? <div className={s.formError}>{formik.errors.user_name}</div> : null}
 				</div>
 
 				<div className={s.group}>
-					<input type="text" required className={s.input} {...formik.getFieldProps('email')}/>
+					<input type="text" required className={s.input} {...formik.getFieldProps('user_email')}/>
 					<span className={s.highlight}></span>
 					<span className={s.bar}></span>
 					<label className={s.label}>Email Address</label>
-					{formik.errors.email && formik.touched.email ?
-						<div className={s.formError}>{formik.errors.email}</div> : null}
+					{formik.errors.user_email && formik.touched.user_email ?
+						<div className={s.formError}>{formik.errors.user_email}</div> : null}
 				</div>
 
 
