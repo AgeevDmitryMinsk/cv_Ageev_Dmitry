@@ -1,0 +1,63 @@
+@import "src/assets/sass/variables";
+
+.aboutTitle {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 55px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 110%;
+  margin: 2.3733333333rem 0 1.424rem 0;
+  text-align: center;
+  height: 60px;
+}
+
+.aboutTitle_white {
+  color: $primaryText;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.aboutTitle_yellow {
+  color: $accentText;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.aboutWrapperIcon {
+  overflow: inherit;
+  background: none;
+  margin: 35px 0 62px;
+  text-align: center;
+  height: 1px;
+  color: $line;
+}
+
+.outerLine {
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 1px solid $line;
+  width: 25%;
+}
+
+
+.aboutIcon {
+  margin: 0 20px;
+  color: $accentText;
+  font-size: 20px;
+}
+
+
+@media (max-width: 600px) {
+  .aboutTitle {
+    font-size: 35px;
+  }
+
+  .aboutWrapperIcon {
+    margin: 5px 0 40px;
+  }
+}

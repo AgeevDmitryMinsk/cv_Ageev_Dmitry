@@ -1,0 +1,51 @@
+@import "../../assets/sass/variables";
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  color: $primaryText;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.close:hover,
+.close:focus {
+  color: $accentText;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modalSuccessTitle {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.modalSuccessTexts {
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.modalErrorTitle {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+.modalErrorTexts {
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.modalError {
+  font-size: 15px;
+  line-height: 25px;
+  text-align: center;
+  margin-top: 5px;
+}

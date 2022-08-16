@@ -1,0 +1,46 @@
+@import "src/assets/sass/variables";
+
+.box {
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $primaryText;
+  text-decoration: none;
+  width: 50%;
+  height: 50%;
+  .borderBtmRight {
+    border-bottom: 10px solid $bgPrimary;
+    border-right: 10px solid $bgPrimary;
+  }
+  .textIntro {
+    color: $secondaryText;
+    font-size: 20px;
+  }
+  .textIntroName {
+    color: $primaryText;
+    font-size: 35px;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .textIntroAccent {
+    color: $accentText;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    font-size: 20px;
+    width: 100%;
+    height: 20%;
+    .textIntro {
+      font-size: 16px;
+    }
+    .textIntroName {
+      font-size: 25px;
+    }
+  }
+}

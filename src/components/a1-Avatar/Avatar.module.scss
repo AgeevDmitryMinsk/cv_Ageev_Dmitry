@@ -1,0 +1,33 @@
+.avatar {
+  background-image: url(Ageev_Dmitry_red_sea.jpg);
+  position: absolute;
+  right: 24px;
+  padding: 0;
+  margin-top: 24px;
+  margin-left: 24px;
+  height: calc(100vh - 48px);
+  background-size: cover;
+  background-position: center center;
+  width: calc(33.3333333333% - 48px);
+  //border: 1px solid white;
+}
+
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 900px) {
+  .avatar {
+    display: none;
+    width: 0;
+  }
+}
+
+@media (min-width: 600px) {
+
+}
+
+@media (max-width: 599px) {
+
+}

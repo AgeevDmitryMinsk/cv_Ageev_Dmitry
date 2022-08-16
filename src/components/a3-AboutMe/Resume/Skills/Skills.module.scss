@@ -1,0 +1,156 @@
+@import "src/assets/sass/variables";
+
+.skillBox {
+  width: 100%;
+  box-shadow: 0px -3px 16px 3px $border;
+
+  .skillHeadingBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 31.5px;
+    font-weight: 700;
+    background: $bgFourth;
+    width: 100%;
+    border-bottom: 1px solid $border;
+
+    .skillHeading {
+      margin: 0;
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+      color: $accentText;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 21px;
+    }
+  }
+  .skillList {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    list-style: none;
+
+    .skillItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      min-height: 140px;
+
+      .aboutIcon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .skillTitle {
+        min-width: inherit;
+        text-align: center;
+        font-weight: 600;
+        font-size: 15px;
+        word-wrap:  break-word;
+      }
+    }
+  }
+}
+
+.animation {
+  //animation: animation 1.1s both;
+  animation: animation 1.1s backwards;
+}
+
+@keyframes animation {
+  0% {
+    transform: translateY(-600px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(68px);
+    animation-timing-function: ease-in;
+  }
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  81% {
+    transform: translateX(32px);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+  }
+  95% {
+    transform: translateX(8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .skillBox {
+
+    .skillHeadingBox {
+      .skillHeading {
+      }
+    }
+    .skillList {
+      .skillItem {
+
+        .aboutIcon {
+          font-size: 20px;
+        }
+
+        .skillTitle {
+          font-size: 16px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 600px) {
+
+  .skillBox {
+
+    .skillHeadingBox {
+      .skillHeading {
+      }
+    }
+    .skillList {
+      .skillItem {
+        width: 48%;
+        min-height: 100px;
+
+        .aboutIcon {
+          font-size: 20px;
+        }
+
+        .skillTitle {
+          font-size: 14px;
+          line-height: 25px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
